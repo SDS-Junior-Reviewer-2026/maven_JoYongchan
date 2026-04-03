@@ -1,6 +1,7 @@
 name: Email Test
 
 on:
+
   # 버튼을 눌렀을때만 Trigger되게 합니다. (테스트용)
   workflow_dispatch
 
@@ -12,7 +13,7 @@ jobs:
     # 1. Clone
     - uses: actions/checkout@v4
 
-    # 2. AWS CLI 로그인 하기
+    # 2. AWS CLI 로그인 하기 (강사계정)
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v4
       with:
@@ -27,5 +28,5 @@ jobs:
       run: |
         aws ses send-email \
           --from "mincoding@naver.com" \
-          --destination "ToAddresses=본인이메일아이디@본인도메인.com" \
+          --destination "jych1109@gmail.com" \
           --message "Subject={Data=테스트 메일 전송},Body={Text={Data=안녕? KFC from GitHub Actions}}"
